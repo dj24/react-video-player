@@ -44,9 +44,13 @@ const QualitySelect = ({
 }: {
   value: number;
   qualityLevels: TQualityLevel[];
-  onChange: (event: SelectChangeEvent) => void;
+  onChange: (event: SelectChangeEvent<number>) => void;
 }) => (
-  <Select sx={{ width: 200, height: "100%" }} value={value} onChange={onChange}>
+  <Select<number>
+    sx={{ width: 200, height: "100%" }}
+    value={value}
+    onChange={onChange}
+  >
     {qualityLevels?.map(({ index, resolution }) => (
       <MenuItem key={index} value={index}>
         {resolution}
@@ -138,7 +142,7 @@ export const Video = ({ src }: { src: string }) => {
             value={currentQuality}
             qualityLevels={qualityLevels}
             onChange={(event) =>
-              setCurrentQuality(event.target.value as unknown as number)
+              setCurrentQuality(event.target.value as number)
             }
           ></QualitySelect>
         </Controls>
