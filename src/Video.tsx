@@ -75,8 +75,6 @@ export const Video = ({ src }: { src: string }) => {
     }
   }, [currentQuality]);
 
-  console.log(isBuffering);
-
   return (
     <Box sx={{ position: "relative" }}>
       <ReactPlayer
